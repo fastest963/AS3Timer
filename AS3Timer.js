@@ -35,7 +35,8 @@
             this.stop();
         };
     }
-    _.extend(Timer.prototype, Backbone.Events);
+    Timer.prototype = Backbone.Events;
+    Timer.prototype.constructor = Timer;
 
     if (typeof module !== "undefined") {
         module.exports = Timer;
