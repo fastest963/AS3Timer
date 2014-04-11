@@ -38,13 +38,13 @@
     Timer.prototype = Backbone.Events;
     Timer.prototype.constructor = Timer;
 
-    if (typeof module !== "undefined") {
+    if (typeof module !== 'undefined') {
         module.exports = Timer;
     } else {
         window.Timer = Timer;
 
         if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
-            define(function() { return Timer; });
+            define('AS3Timer', function() { return Timer; });
         }
     }
 }(this));
