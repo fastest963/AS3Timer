@@ -12,11 +12,17 @@
         }
         this.currentCount = 0;
         this.running = false;
+        if (typeof delay !== 'number') {
+            throw new TypeError('delay must be a number');
+        }
         this.delay = delay;
         if (repeatCount === 1) {
             clearFunc = clearTimeout;
             startFunc = setTimeout;
         } else {
+            if (typeof repeatCount !== 'number') {
+                throw new TypeError('repeatCount must be a number');
+            }
             clearFunc = clearInterval;
             startFunc = setInterval;
         }
