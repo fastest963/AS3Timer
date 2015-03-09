@@ -1,6 +1,7 @@
 (function(window) {
-    function Timer(delay, repeatCount) {
+    function Timer(delay, repeat) {
         var _this = this,
+            repeatCount = repeat || 0,
             id, clearFunc, startFunc;
         function internalCallback() {
             _this.currentCount++;
@@ -20,9 +21,6 @@
             clearFunc = clearTimeout;
             startFunc = setTimeout;
         } else {
-            if (typeof repeatCount !== 'number') {
-                throw new TypeError('repeatCount must be a number');
-            }
             clearFunc = clearInterval;
             startFunc = setInterval;
         }
